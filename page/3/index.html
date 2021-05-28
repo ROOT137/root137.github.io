@@ -1,0 +1,952 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="shanzhi7 BLOG">
+  <meta name="author" content="shanzhi7">
+  <meta name="keywords" content="">
+  
+  <title>shanzhi7 BLOG</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"shanzhi7.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="出走半生，归来仍是少年。">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Prometheus_SNMP%E7%9B%91%E6%8E%A7%E9%98%B2%E7%81%AB%E5%A2%99%E6%B5%81%E9%87%8F/" target="_self">
+          Prometheus_SNMP监控防火墙流量
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Prometheus_SNMP%E7%9B%91%E6%8E%A7%E9%98%B2%E7%81%AB%E5%A2%99%E6%B5%81%E9%87%8F/" target="_self">
+          
+          
+            
+          
+          简介本文主要借鉴whale_life的CSDN的博客专栏:https://blog.51cto.com/liujingyu/2541726
+职场环境内经常出现网速缓慢，领导就想监控下职场的流量情况
+安装部署各程序说明
+Prometheus：用于做主监控端，收集 snmp_exporter 数据信息
+snmp_exporter：用于监控交换机设备，收集交换机数据信息
+Grafana： 把 Prome
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Prometheus/">Prometheus</a>
+            
+              <a href="/categories/Prometheus/SNMP/">SNMP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Prometheus/">Prometheus</a>
+            
+              <a href="/tags/SNMP/">SNMP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/oracle-%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F/" target="_self">
+          Oracle-数据迁移四种方式
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/oracle-%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F/" target="_self">
+          
+          
+            
+          
+          场景为什么做数据迁移
+原非核心业务与核心业务数据库使用同一TData实例，现将非核心业务拆分到其他实例，方便管理以及安全
+受数据库存储空间限制，拆分数据库达到节省数据库空间的目的软件及硬件环境
+硬件环境
+腾讯云虚拟机 4C 8G 
+
+
+软件版本 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Oracle/">Oracle</a>
+            
+              <a href="/categories/Oracle/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/">数据迁移</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Oracle/">Oracle</a>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/">数据备份</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Oracle-DBLink%E5%A4%87%E4%BB%BD%E8%BF%9C%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_self">
+          Oracle-DBLink备份远端数据库
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Oracle-DBLink%E5%A4%87%E4%BB%BD%E8%BF%9C%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_self">
+          
+          
+            
+          
+          简介
+A:备份源数据库，将A中某个数据进行备份B:操作机，将A的数据备份到B机器上
+
+在A机器上创建用户1234567891011121314create user dbexp identified by “passwd”;````### 在A机器上授权```sqlgrant datapump_exp_full_database to dbexp;````### 在B机器上创建dir```sqlc
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Oracle/">Oracle</a>
+            
+              <a href="/categories/Oracle/%E5%A4%87%E4%BB%BD/">备份</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Oracle/">Oracle</a>
+            
+              <a href="/tags/DBLink/">DBLink</a>
+            
+              <a href="/tags/Databases/">Databases</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Nginx_%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" target="_self">
+          Nginx_跨域问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Nginx_%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" target="_self">
+          
+          
+            
+          
+          什么是跨域跨域：指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对javascript施加的安全限制。
+例如：a页面想获取b页面资源，如果a、b页面的协议、域名、端口、子域名不同，所进行的访问行动都是跨域的，而浏览器为了安全问题一般都限制了跨域访问，也就是不允许跨域请求资源。注意：跨域限制访问，其实是浏览器的限制。理解这一点很重要！！！
+同源策略：是指协议，域名，端口都要
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Nginx/">Nginx</a>
+            
+              <a href="/categories/Nginx/%E8%B7%A8%E5%9F%9F/">跨域</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Nginx/">Nginx</a>
+            
+              <a href="/tags/%E8%B7%A8%E5%9F%9F/">跨域</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Mysql_QA/" target="_self">
+          Mysql_QA
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Mysql_QA/" target="_self">
+          
+          
+            
+          
+          mysqldump 导出导入会重置密码？
+是否会重置密码取决于在导出导入的时候是否包括mysql库中的user表，而下面的语句导出所有的数据库，再导入的时候又没有排除的话，在下次数据库重启后相同用户的密码就会发生变化
+
+12345导出所有的库mysqldump -u uname -p passwd --all-databases &gt; mysqldate.sql导入数据文件mysql -u u
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/QA/">QA</a>
+            
+              <a href="/categories/QA/MySql/">MySql</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/QA/">QA</a>
+            
+              <a href="/tags/MySQL/">MySQL</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Mysql_dump%E5%A4%87%E4%BB%BD/" target="_self">
+          Mysql_dump备份
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Mysql_dump%E5%A4%87%E4%BB%BD/" target="_self">
+          
+          
+            
+          
+          参数详解1234567891011121314151617181920mysqldump(选项)--add-drop-table：在每个创建数据库表语句前添加删除数据库表的语句；--add-locks：备份数据库表时锁定数据库表；--all-databases：备份MySQL服务器上的所有数据库；--comments：添加注释信息；--compact：压缩模式，产生更少的输出；--complete
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/MySQL/">MySQL</a>
+            
+              <a href="/categories/MySQL/%E5%A4%87%E4%BB%BD/">备份</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/MySQL/">MySQL</a>
+            
+              <a href="/tags/mysqldump/">mysqldump</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Mysql-%E5%8D%95%E6%9C%BA%E5%A4%9A%E5%AE%9E%E4%BE%8B%E6%8C%89%E7%85%A7/" target="_self">
+          Mysql-单机多实例按照
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Mysql-%E5%8D%95%E6%9C%BA%E5%A4%9A%E5%AE%9E%E4%BE%8B%E6%8C%89%E7%85%A7/" target="_self">
+          
+          
+            
+          
+          简介起因是因为在一次mysql的数据库中导入导出中的把导入库的密码也重置了，想确认是否是因为导入导出的造成的，特此周围也没有合适的Mysql环境，特从单机搭建多实例mysql,特此记录下。
+环境
+VM虚拟机系统版本：CentOS Linux release 7.3.1611 (Core)数据库版本:mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz
+
+部署环境准备
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/MySQL/">MySQL</a>
+            
+              <a href="/categories/MySQL/%E9%83%A8%E7%BD%B2/">部署</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/MySQL/">MySQL</a>
+            
+              <a href="/tags/%E9%83%A8%E7%BD%B2/">部署</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/LINXU_%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%BF%AE%E5%A4%8D/" target="_self">
+          LINUX_救援模式修复
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/LINXU_%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%BF%AE%E5%A4%8D/" target="_self">
+          
+          
+            
+          
+          简述本次故障于下面连接的博文一致，解决方法也是借鉴博文，推荐去下面的博文查看https://yq.aliyun.com/articles/225837
+系统版本:CentOS 6.5 64故障描述:/bin/sh文件缺失，导致系统启动卡在进度条 
+处理过程问题发现及重置密码由于是问题解决后写的本文档，所以有些没有截图
+由研发人员说服务器无法登陆，尝试ssh连接一致提示密码错误，沟通后通过vcent
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/LINUX/">LINUX</a>
+            
+              <a href="/categories/LINUX/bash/">bash</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/LINUX/">LINUX</a>
+            
+              <a href="/tags/bash/">bash</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/linux_%E8%8E%B7%E5%8F%96%E5%88%86%E6%9E%90java%E5%86%85%E5%AD%98%E4%BF%A1%E6%81%AF/" target="_self">
+          LINUX_获取分析内存信息
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/linux_%E8%8E%B7%E5%8F%96%E5%88%86%E6%9E%90java%E5%86%85%E5%AD%98%E4%BF%A1%E6%81%AF/" target="_self">
+          
+          
+            
+          
+          JMAP获取java进程的内存镜像Jmap的安装jmap是jdk环境中集成的，只要配置了Java环境就可以使用，没有配置环境变量的话 需要指定绝对路径
+
+可以从Oracle官网上找到jdk的安装包下载下来后，直接解压即可
+
+Jmap获取内存镜像#jps 获取Java进程的PID
+#jmap -dump:format=b,file=内存文件 进程PID
+#jmap获取的内存镜像信息一般通过IDE来进
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/LINUX/">LINUX</a>
+            
+              <a href="/categories/LINUX/JAVA/">JAVA</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/LINUX/">LINUX</a>
+            
+              <a href="/tags/JAVA/">JAVA</a>
+            
+              <a href="/tags/%E5%86%85%E5%AD%98/">内存</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Linux_%E6%B7%BB%E5%8A%A0%E6%A0%B9%E8%AF%81%E4%B9%A6%E4%BF%A1%E4%BB%BB%E6%BA%90/" target="_self">
+          LINUX_添加根证书信任源
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Linux_%E6%B7%BB%E5%8A%A0%E6%A0%B9%E8%AF%81%E4%B9%A6%E4%BF%A1%E4%BB%BB%E6%BA%90/" target="_self">
+          
+          
+            
+          
+          简介某三方机构需要更换https证书，通知客户检测是否支持新证书加密算法，先给一个域名配置了新证书 客户在在自己服务端测试是否支持新证书
+过程在三方机构发送的邮件中包含证书和操作步骤，但操作步骤中的三个方法都是针对Java程序来进行操作的，没有针对系统的。而我们业务都是通过nginx反向代理去请求三方的，所以需要其他的方法。
+SSL证书解析流程推荐去下面的博文学习，下面内容就是从博文中拿出来的HT
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/LINUX/">LINUX</a>
+            
+              <a href="/categories/LINUX/%E6%A0%B9%E8%AF%81%E4%B9%A6/">根证书</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/LINUX/">LINUX</a>
+            
+              <a href="/tags/%E8%AF%81%E4%B9%A6/">证书</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

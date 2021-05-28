@@ -1,0 +1,931 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="shanzhi7 BLOG">
+  <meta name="author" content="shanzhi7">
+  <meta name="keywords" content="">
+  
+  <title>shanzhi7 BLOG</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"shanzhi7.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="出走半生，归来仍是少年。">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/SVN_The%20XML%20Response%20Contains%20Invalid%20XML/" target="_self">
+          SVN_The XML Resonse Contains Invalid XML
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/SVN_The%20XML%20Response%20Contains%20Invalid%20XML/" target="_self">
+          
+          
+            
+          
+          问题
+早上开发人员反馈无法SVN无法拉取代码，但是可以更新代码
+拉取代码提示
+
+
+
+问开发人员获取的SVN地址后，本地拉取代码提示12The XML response contains invalid XML Malformed XML: no element found
+
+解决
+根据报错网上搜索得知 \
+
+1.SVN代码路径有问题，注意浏览器中的路径和拉取代码的时候的路径差异 2.本地清除SVN
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/SVN/">SVN</a>
+            
+              <a href="/categories/SVN/%E6%97%A0%E6%B3%95%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81/">无法拉取代码</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/SVN/">SVN</a>
+            
+              <a href="/tags/%E6%97%A0%E6%B3%95%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81/">无法拉取代码</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Supervisord_QA/" target="_self">
+          supervisord_QA
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Supervisord_QA/" target="_self">
+          
+          
+            
+          
+          supervisor: couldn’t setuid to 0: Can’t drop privilege as nonroot user supervisor: child process was not spawned (nginx: ERROR (spawn error))supervisord启动报错：
+1234567891011121314supervisor: couldn&#x27
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/QA/">QA</a>
+            
+              <a href="/categories/QA/supervisord/">supervisord</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/QA/">QA</a>
+            
+              <a href="/tags/supervisord/">supervisord</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Shell_QA/" target="_self">
+          Shell_QA
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Shell_QA/" target="_self">
+          
+          
+            
+          
+          简介下面的shell题,比较有难度，特此记录下。
+shell统计词频     将一个文本中的单词的出现频率统计出来下面是从ssh配置文件中复制过来的一段，当作words.txt中的内容，words.txt
+
+The strategy used for options in the default sshd_config shipped withOpenSSH is to specify optio
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/QA/">QA</a>
+            
+              <a href="/categories/QA/Shell/">Shell</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/QA/">QA</a>
+            
+              <a href="/tags/Shell/">Shell</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Redis-%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F&%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D&%E6%8C%81%E4%B9%85%E5%8C%96/" target="_self">
+          Redis-集群模式&amp;哨兵模式介绍&amp;持久化
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Redis-%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F&%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D&%E6%8C%81%E4%B9%85%E5%8C%96/" target="_self">
+          
+          
+            
+          
+          Redis是什么redis是一款开源的基于内存的高性能key-value数据库，常用于存储热数据的缓存数据库。
+Redis的键值可以包括字符串（strings）类型，同时它还包括哈希（hashes）、列表（lists）、集合（sets）和 有序集合（sorted sets）等数据类型。 对于这些数据类型，你可以执行原子操作。例如：对字符串进行附加操作（append）；递增哈希中的值；向列表中增加元
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Redis/">Redis</a>
+            
+              <a href="/categories/Redis/%E9%9B%86%E7%BE%A4/">集群</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/redis/">redis</a>
+            
+              <a href="/tags/%E5%93%A8%E5%85%B5/">哨兵</a>
+            
+              <a href="/tags/%E9%9B%86%E7%BE%A4/">集群</a>
+            
+              <a href="/tags/%E6%8C%81%E4%B9%85%E5%8C%96/">持久化</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Python_%E7%88%AC%E5%8F%96JD%E5%95%86%E5%93%81%E4%BF%A1%E6%81%AF/" target="_self">
+          Python_爬取JD商品信息
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Python_%E7%88%AC%E5%8F%96JD%E5%95%86%E5%93%81%E4%BF%A1%E6%81%AF/" target="_self">
+          
+          
+            
+          
+          header的生成主流网站都限制了爬虫，一般是识别header信息来判断真人或者爬虫，直接通过request获取商品页面会被重定向到登陆界面，配置了header可正常获取信息对header不熟悉的可通过工具来生成header
+https://curl.trillworks.com/
+首先获取爬取页面的url,通过开发者模式获取curl
+
+
+
+复制到https://curl.trillworks.c
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+              <a href="/categories/Python/crawler/">crawler</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+              <a href="/tags/crawler/">crawler</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Python_%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" target="_self">
+          Python_基础笔记
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Python_%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" target="_self">
+          
+          
+            
+          
+          try123456789101112try:    Nomal execution blockexcept A:    Exception A handleexcept B:    Exception B handleexcept:    Other Exception handleelse:    if no exception, get herefinally:     print(&#x27
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Python_%E5%9F%BA%E7%A1%80%E6%A0%B7%E4%BE%8B%E4%BA%8C/" target="_self">
+          Python_基础样例二
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Python_%E5%9F%BA%E7%A1%80%E6%A0%B7%E4%BE%8B%E4%BA%8C/" target="_self">
+          
+          
+            
+          
+          基本数值统计1234567891011121314151617181920212223242526def getNum():  # 获取用户不定长度的输入    numbers = eval(input())    return numbersdef mean(numbers):  # 计算平均值    sum = 0    for i in numbers:        sum += i   
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Python_%E5%9F%BA%E7%A1%80%E6%A0%B7%E4%BE%8B%E4%B8%80/" target="_self">
+          Python_基础样例一
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Python_%E5%9F%BA%E7%A1%80%E6%A0%B7%E4%BE%8B%E4%B8%80/" target="_self">
+          
+          
+            
+          
+          温度转换12345678910TempStr = input(&quot;请输入带有符号的温度值：&quot;)if TempStr[-1] in [&#x27;F&#x27;,&#x27;f&#x27;]:    C = (eval(TempStr[0:-1]) - 32)/1.8    print(&quot;转换后的温度是&#123;:.2f&#125;C&quot;.format(C))e
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Python_%E5%8A%A8%E6%80%81%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D%E6%9B%B4%E6%8D%A2%E5%AE%89%E5%85%A8%E7%BB%84/" target="_self">
+          Python_动态解析域名更换安全组规则
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Python_%E5%8A%A8%E6%80%81%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D%E6%9B%B4%E6%8D%A2%E5%AE%89%E5%85%A8%E7%BB%84/" target="_self">
+          
+          
+            
+          
+          简介由于腾讯云安全组不支持添加域名，导致一些服务依赖外部域名的 有时会因为域名解析的IP更新而无法访问，最近又在学习python，特写了下面这个脚本，来实现自动获取域名解析出来的IP更改安全组规则和添加路由表规则
+脚本需要安装腾讯SDK环境
+1pip install --upgrade tencentcloud-sdk-python
+腾讯SDK GitHub地址：https://github.co
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+              <a href="/tags/%E5%AE%89%E5%85%A8%E7%BB%84/">安全组</a>
+            
+              <a href="/tags/%E8%B7%AF%E7%94%B1%E8%A1%A8/">路由表</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Prometheus_%E9%92%89%E9%92%89%E7%BE%A4ding%E6%9F%90%E4%BA%BA%E5%92%8C%E5%BA%94%E7%94%A8%E5%88%86%E7%BB%84%E6%8A%A5%E8%AD%A6/" target="_self">
+          Prometheus_钉钉群ding某人和应用分组报警
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Prometheus_%E9%92%89%E9%92%89%E7%BE%A4ding%E6%9F%90%E4%BA%BA%E5%92%8C%E5%BA%94%E7%94%A8%E5%88%86%E7%BB%84%E6%8A%A5%E8%AD%A6/" target="_self">
+          
+          
+            
+          
+          起因公司这边主要是通过Prometheus来进行监控的，告警媒介主要是通过webhook在钉钉群中完成告警。但是现在的告警信息只能知道有异常，不能快速定位，而且报警信息过多的话，很容易遗漏，不能根据报警信息找到对应的人员，因此想通过告警来自动完成ding某人的操作。之前的报警信息如下，采用markdown类型，只能知道机器和端口,需要根据端口去找对应的进程，而进程名称和文件夹名称不对应，像我这种刚
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 10:35" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Prometheus/">Prometheus</a>
+            
+              <a href="/categories/Prometheus/alertmanager/">alertmanager</a>
+            
+              <a href="/categories/Prometheus/alertmanager/prometheus-webhook-dingtalk/">prometheus-webhook-dingtalk</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Prometheus/">Prometheus</a>
+            
+              <a href="/tags/%E7%9B%91%E6%8E%A7/">监控</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
