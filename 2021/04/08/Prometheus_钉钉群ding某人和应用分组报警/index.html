@@ -1,0 +1,539 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="shanzhi7">
+  <meta name="keywords" content="">
+  
+  <title>Prometheus_钉钉群ding某人和应用分组报警 - shanzhi7 BLOG</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"shanzhi7.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":".","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SHANZHI7</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/images/1.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Prometheus_钉钉群ding某人和应用分组报警">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-08 00:00" pubdate>
+        星期四, 四月 8日 2021, 12:00 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Prometheus_钉钉群ding某人和应用分组报警</h1>
+            
+            <div class="markdown-body">
+              <h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>公司这边主要是通过Prometheus来进行监控的，告警媒介主要是通过webhook在钉钉群中完成告警。<br>但是现在的告警信息只能知道有异常，不能快速定位，而且报警信息过多的话，很容易遗漏，不能根据报警信息找到对应的人员，因此想通过告警来自动完成ding某人的操作。<br>之前的报警信息如下，采用markdown类型，只能知道机器和端口,需要根据端口去找对应的进程，而进程名称和文件夹名称不对应，像我这种刚接触这种环境的，就比较痛苦（图片外链比较麻烦，base64串太长了此处就用文本展示了）。</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vhdl">监控告警-服务异常<br>Prometheus恢复信息<br>告警级别：提示<br>开始时间：<span class="hljs-built_in">time</span><br>结束时间：<span class="hljs-built_in">time</span><br>故障主机IP：ip:<span class="hljs-keyword">port</span><br>ip:<span class="hljs-keyword">port</span>:tomcat_jvm服务异常,已恢复!<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>之前对Prometheus了解不对，正好趁此机会好好了解下相关生态</strong></p>
+<h3 id="学习Prometheus推荐去看下面的文章"><a href="#学习Prometheus推荐去看下面的文章" class="headerlink" title="学习Prometheus推荐去看下面的文章"></a>学习Prometheus推荐去看下面的文章</h3><p><a target="_blank" rel="noopener" href="https://yunlzheng.gitbook.io/prometheus-book/">https://yunlzheng.gitbook.io/prometheus-book/</a></p>
+<h3 id="Prometheus监控项配置"><a href="#Prometheus监控项配置" class="headerlink" title="Prometheus监控项配置"></a>Prometheus监控项配置</h3><p>详细的概念此处就不再描述了，监控项的配置需要修改三个文件</p>
+<h4 id="分组告警"><a href="#分组告警" class="headerlink" title="分组告警"></a>分组告警</h4><p>此处的分组告警有两种<br>一种是根据不同的报警级别等条件实现相同级别的告警只发送一条。<br>另一种就是根据不同的业务类型发送给不同的业务团队，这个就需要自己去定义标签，监控任务来完成了。</p>
+<h4 id="prometheus-yml"><a href="#prometheus-yml" class="headerlink" title="prometheus.yml"></a>prometheus.yml</h4><p>只截取了监控任务的配置</p>
+<figure class="highlight csharp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs csharp"><span class="hljs-meta">#监控任务名称</span><br>- job_name: <span class="hljs-string">&quot;tomcat_jvm_MedicalCloud&quot;</span> <br><span class="hljs-meta">#获取监控的通用url</span><br>  metrics_path: /actuator/prometheus<br><span class="hljs-meta">#获取监控时间的间隔</span><br>  scrape_interval: <span class="hljs-number">30</span>s<br>  file_sd_configs:<br>  - refresh_interval: <span class="hljs-number">1</span>m<br>    files:<br><span class="hljs-meta">#具体的监控项配置文件</span><br>    - <span class="hljs-string">&quot;/etc/prometheus/conf.d/tomcat_jvm/tomcat_jvm.yml&quot;</span><br></code></pre></div></td></tr></table></figure>
+<h4 id="rules-yml"><a href="#rules-yml" class="headerlink" title="rules.yml"></a>rules.yml</h4><p>报警条件的定义和自定义标签的添加，为了分组告警</p>
+<figure class="highlight csharp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs csharp">groups:<br>    - name: alert_system<br>      rules:<br>      - alert: 监控告警-大人出事了<br>        <span class="hljs-meta">#报警条件</span><br>        expr: up&#123;job=<span class="hljs-string">&quot;tomcat_&quot;</span>&#125; == <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span>: <span class="hljs-number">2</span>m<br>        <span class="hljs-meta">#自定义标签，想要实现业务分组，此处很重要</span><br>        labels:<br>          service: group1<br>          serverity: warning<br>        annotations:<br>          summary: <span class="hljs-string">&quot;&#123;&#123;$labels.project&#125;&#125; &#123;&#123;$labels.instance&#125;&#125; 无法访问!&quot;</span><br>          description: <span class="hljs-string">&quot;&#123;&#123;$labels.project&#125;&#125; &#123;&#123;$labels.instance&#125;&#125; 无法访问!&quot;</span><br>          resolved: <span class="hljs-string">&quot;&#123;&#123;$labels.project&#125;&#125; &#123;&#123;$labels.instance&#125;&#125; 无法访问,已恢复!&quot;</span><br>          grafana_url: <span class="hljs-string">&quot;http://grafana.cn/&quot;</span><br></code></pre></div></td></tr></table></figure>
+<h4 id="tomcat-jvm-yml"><a href="#tomcat-jvm-yml" class="headerlink" title="tomcat_jvm.yml"></a>tomcat_jvm.yml</h4><p>具体的监控机器</p>
+<figure class="highlight csharp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs csharp">- targets:<br>  - <span class="hljs-string">&quot;ip:port&quot;</span><br>  labels:<br>    <span class="hljs-meta">#这里可以自定义应用名称 业务组等都可以在这里加上</span><br>    instance: ip:port<br></code></pre></div></td></tr></table></figure>
+<h3 id="报警方式"><a href="#报警方式" class="headerlink" title="报警方式"></a>报警方式</h3><p>一般的报警是通过alertmanager进行的，流程是Prometheus根据监控条件promQL定时查询，如果有结果 就触发报警，Prometheus自身不会发出告警的，需要通过alert manager进行发送。<br>我这里是 不需要进行@某人操作的 通过alertmanager进行发送<br>需要@某人的则通过prometheus-webhook-dingtalk进行发送报警</p>
+<h4 id="alert-manager告警优先级"><a href="#alert-manager告警优先级" class="headerlink" title="alert manager告警优先级"></a>alert manager告警优先级</h4><p>推荐阅读：<a target="_blank" rel="noopener" href="https://aleiwu.com/post/alertmanager/">https://aleiwu.com/post/alertmanager/</a></p>
+<h4 id="alertmanager-yml"><a href="#alertmanager-yml" class="headerlink" title="alertmanager.yml"></a>alertmanager.yml</h4><p><a target="_blank" rel="noopener" href="https://github.com/feiyu563/PrometheusAlert">alertmanager github地址</a><br>github上面有详细的使用教程<br>报警的转发是通过alert manager进行完成的</p>
+<figure class="highlight csharp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs csharp"><span class="hljs-keyword">global</span>:<br>  resolve_timeout: <span class="hljs-number">1</span>m<br>route:<br>  group_wait: <span class="hljs-number">30</span>s <span class="hljs-meta"># 在组内等待所配置的时间，如果同组内，30秒内出现相同报警，在一个组内出现。</span><br>  group_interval: <span class="hljs-number">1</span>m <span class="hljs-meta"># 如果组内内容不变化，5m后发送。</span><br>  repeat_interval: <span class="hljs-number">24</span>h <span class="hljs-meta"># 发送报警间隔，如果指定时间内没有修复，则重新发送报警</span><br>  group_by: [<span class="hljs-string">&#x27;alertname&#x27;</span>,<span class="hljs-string">&#x27;project&#x27;</span>]  <span class="hljs-meta"># 报警分组，根据 prometheus 的 lables 进行报警分组，这些警报会合并为一个通知发送给接收器，也就是警报分组。</span><br>  receiver: ops<br>  routes:<br>  <span class="hljs-meta">#报警通知的对象</span><br>  - receiver: <span class="hljs-string">&#x27;group1&#x27;</span><br>    group_wait: <span class="hljs-number">10</span>s<br>    <span class="hljs-meta">#匹配Prometheus的rules.yml中的标签</span><br>    match_re:<br>      service: <span class="hljs-string">&#x27;group1&#x27;</span><br>      serverity: critical|warning<br>  - receiver: <span class="hljs-string">&#x27;ops&#x27;</span><br>    group_wait: <span class="hljs-number">10</span>s<br>    match_re:<br>      serverity: critical|warning<br><br><br>receivers:<br><span class="hljs-meta">#通知对象的webhook地址</span><br>- name: <span class="hljs-string">&#x27;ops&#x27;</span><br>  webhook_configs:<br>  <span class="hljs-meta">#这里的url通过alertmanager的web界面生成:http://ip:8080/template</span><br>  - url: <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-meta">#业务组告警</span><br>- name: <span class="hljs-string">&#x27;group1&#x27;</span><br>  webhook_configs:<br>  <span class="hljs-meta">#此处的url通过prometheus-webhook-dingtalk的配置生成</span><br>  - url: <span class="hljs-string">&#x27;http://localhost:8060/dingtalk/webhook_mention_users/send&#x27;</span><br><br></code></pre></div></td></tr></table></figure>
+<h4 id="prometheus-webhook-dingtalk-markdown告警"><a href="#prometheus-webhook-dingtalk-markdown告警" class="headerlink" title="prometheus-webhook-dingtalk markdown告警"></a>prometheus-webhook-dingtalk markdown告警</h4><p><strong>prometheus-webhook-dingtalk组件支持markdown类型的告警，因为钉钉webhook接口的限制，必须要在告警文本中含有@手机号的信息才可以</strong><br>例子：在Prometheus的rule.yml中添加手机号信息<br>Users: “@1831101,@186501”<br>在prometheus-webhook-dingtalk的config.yml中填写<br> mention:<br>      mobiles: [“1831101”,”186501”]<br>完成以上配置即可实现markdown类型的告警消息。</p>
+<h4 id="prometheus-webhook-dingtalk"><a href="#prometheus-webhook-dingtalk" class="headerlink" title="prometheus-webhook-dingtalk"></a>prometheus-webhook-dingtalk</h4><p><a target="_blank" rel="noopener" href="https://github.com/timonwong/prometheus-webhook-dingtalk">prometheus-webhook-dingtalk</a><br>github上面有详细的介绍，但是根据它的介绍配置完后，无法进行@某人的操作<br>通过分析它的issue 试了好长时间才完成配置</p>
+<h5 id="issue"><a href="#issue" class="headerlink" title="issue"></a>issue</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/timonwong/prometheus-webhook-dingtalk/issues/85">https://github.com/timonwong/prometheus-webhook-dingtalk/issues/85</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Buster_ZR/article/details/105848811">https://blog.csdn.net/Buster_ZR/article/details/105848811</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/timonwong/prometheus-webhook-dingtalk/issues/17">https://github.com/timonwong/prometheus-webhook-dingtalk/issues/17</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/yargs/y18n/issues/115">https://github.com/yargs/y18n/issues/115</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/timonwong/prometheus-webhook-dingtalk/pull/54">https://github.com/timonwong/prometheus-webhook-dingtalk/pull/54</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/timonwong/prometheus-webhook-dingtalk/pull/35">https://github.com/timonwong/prometheus-webhook-dingtalk/pull/35</a></li>
+<li><h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4></li>
+</ul>
+<ol>
+<li>prometheus-webhook-dingtalk默认为markdown形式的报警，写在代码中的，跟template.tmpl没有关系</li>
+<li>@某人的操作必须要告警文本改为文本形式，markdown形式不行（issue中有说尝试makrdown@所有人成功的）</li>
+<li>钉钉群机器人接口信息中是有写支持markdown形式的</li>
+<li>不能使用它提供好的包，需要下载源码修改notifier/notification.go中的代码 重新编译</li>
+</ol>
+<h4 id="修改代码"><a href="#修改代码" class="headerlink" title="修改代码"></a>修改代码</h4><p>notifier/notification.go<br>修改的72 73 74 <br>pkg/models/dingtalk.go代码修改notifier/notification.go<br>修改后重新编译成包</p>
+<figure class="highlight csharp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs csharp"><span class="hljs-number">60</span> func (r *DingNotificationBuilder) Build(m *models.WebhookMessage) (*models.DingTalkNotification, error) &#123;<br><span class="hljs-number">61</span>         title, err := r.renderTitle(m)<br><span class="hljs-number">62</span>         <span class="hljs-keyword">if</span> err != nil &#123;<br><span class="hljs-number">63</span>                 <span class="hljs-keyword">return</span> nil, err<br><span class="hljs-number">64</span>         &#125;<br><span class="hljs-number">65</span>         content, err := r.renderText(m)<br><span class="hljs-number">66</span>         <span class="hljs-keyword">if</span> err != nil &#123;<br><span class="hljs-number">67</span>                 <span class="hljs-keyword">return</span> nil, err<br><span class="hljs-number">68</span>         &#125;<br><span class="hljs-number">69</span> <br><span class="hljs-number">70</span>         notification := &amp;models.DingTalkNotification&#123;<br><span class="hljs-number">71</span>                 MessageType: <span class="hljs-string">&quot;text&quot;</span>,<br><span class="hljs-number">72</span>                 Text: &amp;models.DingTalkNotificationText&#123;<br><span class="hljs-number">73</span>                         Title: title,<br><span class="hljs-number">74</span>                         Content:  content,<br><span class="hljs-number">75</span>                 &#125;,<br><span class="hljs-number">76</span>         &#125;<br><span class="hljs-number">77</span> <br><span class="hljs-number">78</span>         <span class="hljs-comment">// Build mention</span><br><span class="hljs-number">79</span>         notification.At = &amp;models.DingTalkNotificationAt&#123;<br><span class="hljs-number">80</span>                 IsAtAll:   r.target.Mention.All,<br><span class="hljs-number">81</span>                 AtMobiles: r.target.Mention.Mobiles,<br><span class="hljs-number">82</span>         &#125;<br><span class="hljs-number">83</span> <br><span class="hljs-number">84</span>         <span class="hljs-keyword">return</span> notification, nil<br><span class="hljs-number">85</span> &#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h4 id="prometheus-webhook-dingtalk-源码安装"><a href="#prometheus-webhook-dingtalk-源码安装" class="headerlink" title="prometheus-webhook-dingtalk 源码安装"></a>prometheus-webhook-dingtalk 源码安装</h4><p>源码安装博文地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Buster_ZR/article/details/105848811/">https://blog.csdn.net/Buster_ZR/article/details/105848811\</a></p>
+<h4 id="etc-prometheus-webhook-dingtalk-config-yml"><a href="#etc-prometheus-webhook-dingtalk-config-yml" class="headerlink" title="/etc/prometheus-webhook-dingtalk/config.yml"></a>/etc/prometheus-webhook-dingtalk/config.yml</h4><figure class="highlight csharp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs csharp"><span class="hljs-meta">#模板文件地址</span><br>templates:<br>  - /etc/prometheus-webhook-dingtalk/template.tmpl<br><br><br>targets:<br>  webhook1:<br>    url: https:<span class="hljs-comment">//oapi.dingtalk.com/robot/send?access_token=</span><br>    <span class="hljs-meta"># secret for signature</span><br>    secret: SEC000000000000000000000<br>  webhook2:<br>    url: https:<span class="hljs-comment">//oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxx</span><br>  webhook_legacy:<br>    url: https:<span class="hljs-comment">//oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxx</span><br>    <span class="hljs-meta"># Customize template content</span><br>    message:<br>      <span class="hljs-meta"># Use legacy template</span><br>      title: <span class="hljs-string">&#x27;&#123;&#123; template &quot;legacy.title&quot; . &#125;&#125;&#x27;</span><br>      text: <span class="hljs-string">&#x27;&#123;&#123; template &quot;legacy.content&quot; . &#125;&#125;&#x27;</span><br>  webhook_mention_all:<br>    url: https:<span class="hljs-comment">//oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxx</span><br>    mention:<br>      all: <span class="hljs-literal">true</span><br>  webhook_mention_users:<br>    <span class="hljs-meta">#换成自己webhook的token即可</span><br>    url: https:<span class="hljs-comment">//oapi.dingtalk.com/robot/send?access_token=</span><br>    mention:<br>      <span class="hljs-meta">#手机号为对应人员的手机号，多个手机号通过&quot;183111&quot;,&quot;150222&quot;,完成即可</span><br>      mobiles: [<span class="hljs-string">&quot;1811111111&quot;</span>]<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="etc-prometheus-webhook-dingtalk-template-tmpl"><a href="#etc-prometheus-webhook-dingtalk-template-tmpl" class="headerlink" title="/etc/prometheus-webhook-dingtalk/template.tmpl"></a>/etc/prometheus-webhook-dingtalk/template.tmpl</h4><p>它的template是golang的template语法，需要自己去定义</p>
+<figure class="highlight csharp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs csharp">&#123;&#123; define <span class="hljs-string">&quot;__subject&quot;</span> &#125;&#125;[&#123;&#123; .Status | toUpper &#125;&#125;&#123;&#123; <span class="hljs-keyword">if</span> eq .Status <span class="hljs-string">&quot;Firing&quot;</span> &#125;&#125;:&#123;&#123; .Alerts.Firing | len &#125;&#125;&#123;&#123; end &#125;&#125;] &#123;&#123; .GroupLabels.SortedPairs.Values | <span class="hljs-keyword">join</span> <span class="hljs-string">&quot; &quot;</span> &#125;&#125; &#123;&#123; <span class="hljs-function"><span class="hljs-keyword">if</span> <span class="hljs-title">gt</span> (<span class="hljs-params">len .CommonLabels</span>) (<span class="hljs-params">len .GroupLabels</span>) &#125;&#125;(<span class="hljs-params">&#123;&#123; <span class="hljs-keyword">with</span> .CommonLabels.Remove .GroupLabels.Names &#125;&#125;&#123;&#123; .Values | <span class="hljs-keyword">join</span> <span class="hljs-string">&quot; &quot;</span> &#125;&#125;&#123;&#123; end &#125;&#125;</span>)</span>&#123;&#123; end &#125;&#125;&#123;&#123; end &#125;&#125;<br>&#123;&#123; define <span class="hljs-string">&quot;__alertmanagerURL&quot;</span> &#125;&#125;&#123;&#123; .ExternalURL &#125;&#125;/<span class="hljs-meta">#/alerts?receiver=&#123;&#123; .Receiver &#125;&#125;&#123;&#123; end &#125;&#125;</span><br><br>&#123;&#123; define <span class="hljs-string">&quot;__text_alert_list&quot;</span> &#125;&#125;&#123;&#123; range . &#125;&#125;<br>**Labels**<br>&#123;&#123; range .Labels.SortedPairs &#125;&#125; - &#123;&#123; .Name &#125;&#125;: &#123;&#123; .Value | markdown | html &#125;&#125;<br>&#123;&#123; end &#125;&#125;<br>**Annotations**<br>&#123;&#123; range .Annotations.SortedPairs &#125;&#125; - &#123;&#123; .Name &#125;&#125;: &#123;&#123; .Value | markdown | html &#125;&#125;<br>&#123;&#123; end &#125;&#125;<br>**Source:** [&#123;&#123; .GeneratorURL &#125;&#125;](&#123;&#123; .GeneratorURL &#125;&#125;)<br>&#123;&#123; end &#125;&#125;&#123;&#123; end &#125;&#125;<br><br>&#123;&#123; define <span class="hljs-string">&quot;default.__text_alert_list&quot;</span> &#125;&#125;&#123;&#123; range . &#125;&#125;<br><br>------------------------------------------------------------------------------------<br>**告警级别:** &#123;&#123; .Labels.serverity | upper &#125;&#125;<br><br>**运营团队:** &#123;&#123; .Labels.team | upper &#125;&#125;<br><br>**触发时间:** &#123;&#123; dateInZone <span class="hljs-string">&quot;2006.01.02 15:04:05&quot;</span> (.StartsAt) <span class="hljs-string">&quot;Asia/Shanghai&quot;</span> &#125;&#125;<br><br>**结束时间:** &#123;&#123; dateInZone <span class="hljs-string">&quot;2006.01.02 15:04:05&quot;</span> (.EndsAt) <span class="hljs-string">&quot;Asia/Shanghai&quot;</span> &#125;&#125;<br><br>**事件信息:**<br>&#123;&#123; range .Labels.SortedPairs &#125;&#125;&#123;&#123; <span class="hljs-function"><span class="hljs-keyword">if</span> <span class="hljs-title">and</span> (<span class="hljs-params">ne (.Name</span>) &quot;serverity&quot;) (<span class="hljs-params">ne (.Name</span>) &quot;summary&quot;) (<span class="hljs-params">ne (.Name</span>) &quot;team&quot;) &#125;&#125; -</span> &#123;&#123; .Name &#125;&#125;: &#123;&#123; .Value | markdown | html &#125;&#125;<br>&#123;&#123; end &#125;&#125;&#123;&#123; end &#125;&#125;<br>&#123;&#123; end &#125;&#125;<br>&#123;&#123; end &#125;&#125;<br><br>-----------------------------------------------------------------------------------<br><br>&#123;&#123; <span class="hljs-function"><span class="hljs-keyword">if</span> <span class="hljs-title">gt</span> (<span class="hljs-params">len .Alerts.Resolved</span>) 0 -&#125;&#125;</span><br>&#123;&#123; template <span class="hljs-string">&quot;default.__text_alertresovle_list&quot;</span> .Alerts.Resolved &#125;&#125;<br><br><br>&#123;&#123;- end &#125;&#125;<br></code></pre></div></td></tr></table></figure>
+<h4 id="告警信息"><a href="#告警信息" class="headerlink" title="告警信息"></a>告警信息</h4><figure class="highlight csharp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs csharp"><span class="hljs-meta">#### \[RESOLVED\] **[监控告警-服务异常](http://url/#/alerts?receiver=ops)**</span><br><br>**Alerts Resolved**<br><br><br>------------------------------------------------------------------------------------<br>**告警级别:** <br><br>**运营团队:** <br><br>**触发时间:** <span class="hljs-number">2021.04</span><span class="hljs-number">.02</span> <span class="hljs-number">10</span>:<span class="hljs-number">07</span>:<span class="hljs-number">16</span><br><br>**结束时间:** <span class="hljs-number">2021.04</span><span class="hljs-number">.02</span> <span class="hljs-number">10</span>:<span class="hljs-number">23</span>:<span class="hljs-number">46</span><br><br>**事件信息:**<br> - alertname: 监控告警-服务异常<br> - instance: ip<br> - job: node\_exporter\_coll<br> - level: 提示<br> - serverity: warning<br><br><br><br>@A<br></code></pre></div></td></tr></table></figure>
+<h4 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h4><p>这只是一个业务分组 @某人的初步过程，很多地方需要去优化如告警信息，分组的标签等</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Prometheus/">Prometheus</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Prometheus/">Prometheus</a>
+                    
+                      <a class="hover-with-bg" href="/tags/alertmanager/">alertmanager</a>
+                    
+                      <a class="hover-with-bg" href="/tags/prometheus-webhook-dingtalk/">prometheus-webhook-dingtalk</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/28/hello-world/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/18/FREEIPA_QA/">
+                        <span class="hidden-mobile">FREEIPA_QA</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
